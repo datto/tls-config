@@ -29,7 +29,7 @@ The result:
 
 * **A+ score on Qualys SSL Labs**
 * 100 in key exchange and cipher strength categories
-* Your certificate score will depend on your private key size=
+* Your certificate score will depend on your private key size
 * Protocol support has a 95/100 score, as TLS versions 1.0 and 1.1 remain enabled
 
 ## Out of scope
