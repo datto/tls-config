@@ -77,6 +77,12 @@ Put `apache-ssl-base.conf` in your `conf-available` directory or similar, and in
 
 Coming soon
 
+# License
+
+As the configuration files here consist only of a list of cipher suites and a few configuration directives, the contents of this repository are not eligible for copyright. Use it freely.
+
+Of course, if this helps you out, some love on Twitter or in your page footer is always appreciated, but not required.
+
 # Author/Maintainer
 
 Dan Fuhry (<dfuhry@datto.com>)
