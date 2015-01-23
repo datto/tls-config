@@ -75,7 +75,12 @@ Put `apache-ssl-base.conf` in your `conf-available` directory or similar, and in
 
 ## nginx
 
-Coming soon
+1. Place `nginx-ssl-base.conf` in your `sites-enabled` directory or similar and include it inside your http definiton.
+1. Add `ssl_trusted_certificate /etc/nginx/ssl-config/ca.pem;` to your server blocks, setting the path to your CA's certificate chain (including root!).
+1. Reload nginx.
+
+### HSTS
+Add `add_header Strict-Transport-Security "max-age=31536000; includeSubDomains";` to your server blocks.
 
 # License
 
