@@ -46,11 +46,6 @@ Identifying the anchor is a somewhat tedious process. You'll need to use `openss
 
 Your private key should be absolutely no less than 4,096 bits. If it's smaller, you will have to regenerate it and ask your CA for a re-key. GoDaddy does this for free, but other CAs may charge for this service.
 
-### HSTS
-
-1. `a2enmod headers`
-1. Add to `.htaccess` or your Apache vhost configuration: `Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"`
-
 ### OpenSSL vulnerabilities
 
 This configuration is really not going to be useful unless you patch OpenSSL.
@@ -73,9 +68,19 @@ We don't care, and unless you're the government or a government contractor, you 
 
 Put `apache-ssl-base.conf` in your `conf-available` directory or similar, and include it from your vhost definition. Reload Apache.
 
+### HSTS
+
+1. `a2enmod headers`
+1. Add to `.htaccess` or your Apache vhost configuration: `Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"`
+
 ## nginx
 
-Coming soon
+1. Place `nginx-ssl-base.conf` in your `sites-enabled` directory or similar and include it inside your http definiton.
+1. Add `ssl_trusted_certificate /etc/nginx/ssl-config/ca.pem;` to your server blocks, setting the path to your CA's certificate chain (including root!).
+1. Reload nginx.
+
+### HSTS
+Add `add_header Strict-Transport-Security "max-age=31536000; includeSubDomains";` to your server blocks.
 
 # License
 
