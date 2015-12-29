@@ -52,7 +52,7 @@ This configuration is really not going to be useful unless you patch OpenSSL.
 
 1. `grep -q security /etc/apt/sources.list || echo "Missing security repo"` - if this shows "Missing security repo", edit your `sources.list` appropriately.
 1. `apt-get update`
-1. `apt-get install openssl
+1. `apt-get install openssl`
 
 ## Protocol support
 
