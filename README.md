@@ -78,7 +78,7 @@ Apache
 ------
 
 1. Put `apache-ssl-base.conf` in your `conf-available` directory or similar, and include it from your vhost definition.
-1. Generate your own Diffie-Hellman parameters (`openssh dhparam -out dh4096.pem 4096`) or use ours
+1. Generate your own Diffie-Hellman parameters (`openssh dhparam -out dh4096.pem 4096`) or use ours. **IMPORTANT!** If you care about security in the long run, generating your own Diffie-Hellman parameters provides an additional level of security over just using ours. While we don't expect our 4,096 bit prime to become widely used (and therefore an NSA target), and we're pretty sure it will be a very long time before even the NSA can break a 4,096 bit prime, the safest option is just to generate your own. The more DH primes exist in the world, the more time the NSA needs to spend cracking them to be able to eavesdrop on everything. For further reading, see [weakdh.org](https://weakdh.org/).
 1. Configure Diffie-Hellman:
   * Apache 2.4.7 or earlier: `cat dh4096.pem >> /path/to/certificate`
   * For Apache 2.4.8 or later, uncomment the `SSLOpenSSLConfCmd` directives in `apache-ssl-base.conf`. Update the path to `dh4096.pem` as necessary.
